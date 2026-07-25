@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'screens/splash_screen.dart';
 void main() {
   runApp(const HudumaReceiptPro());
   }
@@ -15,7 +15,7 @@ void main() {
                               theme: ThemeData(
                                       primarySwatch: Colors.red,
                                             ),
-                                                  home: const HomePage(),
+                                                  home: const SplashScreen(),
                                                       );
                                                         }
                                                         }
