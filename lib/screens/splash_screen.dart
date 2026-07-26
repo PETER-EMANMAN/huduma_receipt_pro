@@ -1,56 +1,56 @@
 import 'package:flutter/material.dart';
-import 'dashboard_screen.dart';
-class SplashScreen extends StatelessWidget {
+import 'home_screen.dart';
+
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
-    @override
-      Widget build(BuildContext context) {
-          return Scaffold(
-                backgroundColor: Colors.red,
-                      body: Center(
-                              child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                                  children: [
-                                                              const Icon(
-                                                                            Icons.receipt_long,
-                                                                                          size: 100,
-                                                                                                        color: Colors.white,
-                                                                                                                    ),
-                                                                                                                                const SizedBox(height: 20),
-                                                                                                                                            const Text(
-                                                                                                                                                          "HUDUMA RECEIPT PRO",
-                                                                                                                                                                        style: TextStyle(
-                                                                                                                                                                                        fontSize: 28,
-                                                                                                                                                                                                        fontWeight: FontWeight.bold,
-                                                                                                                                                                                                                        color: Colors.white,
-                                                                                                                                                                                                                                      ),
-                                                                                                                                                                                                                                                  ),
-                                                                                                                                                                                                                                                              const SizedBox(height: 10),
-                                                                                                                                                                                                                                                                          const Text(
-                                                                                                                                                                                                                                                                                        "Smart Solutions. Secure Future.",
-                                                                                                                                                                                                                                                                                                      style: TextStyle(
-                                                                                                                                                                                                                                                                                                                      fontSize: 16,
-                                                                                                                                                                                                                                                                                                                                      color: Colors.white70,
-                                                                                                                                                                                                                                                                                                                                                    ),
-                                                                                                                                                                                                                                                                                                                                                                ),
-                                                                                                                                                                                                                                                                                                                                                                            const SizedBox(height: 40),
-                                                                                                                                                                                                                                                                                                                                                                                        ElevatedButton(
-                                                                                                                                                                                                                                                                                                                                                                                                      onPressed: () {
-                                                                                                                                                                                                                                                                                                                                                                                                          Navigator.push(
-                                                                                                                                                                                                                                                                                                                                                                                                              context,
-                                                                                                                                                                                                                                                                                                                                                                                                                  MaterialPageRoute(
-                                                                                                                                                                                                                                                                                                                                                                                                                        builder: (context) => const DashboardScreen(),
-                                                                                                                                                                                                                                                                                                                                                                                                                            ),
-                                                                                                                                                                                                                                                                                                                                                                                                                              );
-                                                                                                                                                                                                                                                                                                                                                                                                                              },
-                                                                                                                                                                                                                                                                                                                                                                                                      } {
-                                                                                                                                                                                                                                                                                                                                                                                                                      // We'll navigate to the dashboard later
-                                                                                                                                                                                                                                                                                                                                                                          llll
-                                                                                                                                                                                                                                                                                                                                                                                                                                                  child: const Text("Get Started"),
-                                                                                                                                                                                                                                                                                                                                                                                                                                                              ),
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ],
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ),
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ),
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          );
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 3), () {
+      if (mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
+        );
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blue,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'HUDUMA RECEIPT PRO',
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'Smart Solutions. Secure Future.',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white70,
+              ),
+            ),
+            const SizedBox(height: 40),
+            const CircularProgressIndicator(color: Colors.white),
+          ],
+        ),
+      ),
+    );
+  }
+}
